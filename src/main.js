@@ -4,6 +4,12 @@ import App from './App.vue'
 import filter from './utils/filter'
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon.vue'
+import VueAnalytics from 'vue-analytics'
+
+Vue.use(VueAnalytics, {
+  id: 'UA-50613674-4',
+  router
+})
 
 router.beforeEach((to, from, next) => {
   document.title = 'Tim Borny - ' + to.name || 'home'
