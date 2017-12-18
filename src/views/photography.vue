@@ -1,19 +1,32 @@
 <template>
 <div>
   <div id='photos'>
-    <img class='item' v-for="image in images" :src="image.src"/>
+    <img  class='item lazyfade'
+      v-for="image in images"
+      :key="image.src"
+      v-lazy="image.src"
+    />
   </div>
+  <!-- <isotope :options='{}' :list="" > -->
+  <div v-for="element in list" :key="elent">
+    {{element.name}}
+  </div>
+<!-- </isotope> -->
 </div>
 </template>
 
 <style scoped>
+img[lazy=loading] {
+/* width: 30px!important;
+margin:80px; */
+/* height: 500px; */
+ }
+.lazyfade[lazy=loaded]{
+  opacity: 1!important;
+}
 #photos {
   /* Prevent vertical gaps */
   line-height: 0;
-  -webkit-column-count: 3;
-  -webkit-column-gap:   0px;
-  -moz-column-count:    3;
-  -moz-column-gap:      0px;
   column-count:         3;
   column-gap:           0px;
   padding-bottom: 100px;
@@ -37,23 +50,33 @@
 
 #photos img {
   width: calc(100% - 10px);
-  height: auto !important;
+  /* height: auto !important; */
   padding: 5px;
+  opacity: 0;
+  transition: opacity 2s;
 }
 </style>
 
 <script>
 import conf from '../config'
 import {images} from '../utils/gallery'
+// import isotope from 'vueisotope'
 
 export default {
+
+  // components: {
+  //   isotope
+  // },
 
   name: 'photography',
 
   data () {
     return {
       title: 'photography - ' + conf.blogTitle,
-      images: images
+      images: images,
+      list: {
+        name: 'bob'
+      }
     }
   }
 }

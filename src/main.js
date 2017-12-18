@@ -5,7 +5,12 @@ import filter from './utils/filter'
 import 'vue-awesome/icons'
 import Icon from 'vue-awesome/components/Icon.vue'
 import VueAnalytics from 'vue-analytics'
+import VueLazyload from 'vue-lazyload'
 
+// Vue.use(VueLazyload)
+Vue.use(VueLazyload, {
+  loading: 'loading.gif'
+})
 Vue.use(VueAnalytics, {
   id: 'UA-50613674-4',
   router

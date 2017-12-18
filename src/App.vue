@@ -37,7 +37,7 @@
 
 <style lang="stylus" src="./style/index.styl"></style>
 <style>
-/** {outline:1px black solid;}*/
+/* * {outline:1px black solid;} */
 .limited {
   position: relative;
   max-width: 700px;
